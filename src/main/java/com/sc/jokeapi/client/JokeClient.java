@@ -23,10 +23,13 @@ public class JokeClient {
                 .uri("/jod")
                 .accept(MediaType.asMediaType(MediaType.ALL))
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                /* Retrieve use case
-                .retrieve()
-                .bodyToMono(JokeOTDResponse.class)
-                */
+
+                 //Retrieve use case
+//                .retrieve()
+//                .onStatus(HttpStatus::is4xxClientError, error -> Mono.error(new Exception("Request got a client error")))
+//                .onStatus(HttpStatus::is5xxServerError, error -> Mono.error(new Exception("Request got a server error")))
+//                .bodyToMono(JokeOTDResponse.class)
+
                 .exchangeToMono(this::processJokeOTDResponse)
                 .block();
     }
