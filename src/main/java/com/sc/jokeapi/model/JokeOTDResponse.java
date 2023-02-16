@@ -1,10 +1,9 @@
 package com.sc.jokeapi.model;
 
-import com.fasterxml.jackson.annotation.*;
-import lombok.Generated;
-
-import java.util.LinkedHashMap;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import javax.annotation.Generated;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -18,8 +17,6 @@ public class JokeOTDResponse {
     private Success success;
     @JsonProperty("contents")
     private Contents contents;
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new LinkedHashMap<>();
 
     @JsonProperty("success")
     public Success getSuccess() {
@@ -36,19 +33,5 @@ public class JokeOTDResponse {
         return contents;
     }
 
-    @JsonProperty("contents")
-    public void setContents(Contents contents) {
-        this.contents = contents;
-    }
-
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
-
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
 
 }

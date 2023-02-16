@@ -1,7 +1,7 @@
 package com.sc.jokeapi.model;
 
 import com.fasterxml.jackson.annotation.*;
-import lombok.Generated;
+import javax.annotation.Generated;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
